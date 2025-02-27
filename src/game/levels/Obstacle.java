@@ -27,35 +27,37 @@ public class Obstacle implements Drawable {
 
     @Override
     public void draw(Graphics2D g) {
-        int startX = (int) (location.x - Game.topLeft.x);
-        int startY = (int) location.y;
+        if (location.x - Game.topLeft.x < 1000 && location.x - Game.topLeft.x > -250 - width) {
+            int startX = (int) (location.x - Game.topLeft.x);
+            int startY = (int) location.y;
 
-        g.setColor(MORTAR_COLOR);
-        g.fillRect(startX, startY, width, height); // Hintergrund für Mörtel
+            g.setColor(MORTAR_COLOR);
+            g.fillRect(startX, startY, width, height); // Hintergrund für Mörtel
 
-        for (int y = 0; y < height; y += BRICK_HEIGHT) {
-            boolean isOffsetRow = (y / BRICK_HEIGHT) % 2 == 1;
-            int offsetX = isOffsetRow ? BRICK_WIDTH / 2 : 0;
+            for (int y = 0; y < height; y += BRICK_HEIGHT) {
+                boolean isOffsetRow = (y / BRICK_HEIGHT) % 2 == 1;
+                int offsetX = isOffsetRow ? BRICK_WIDTH / 2 : 0;
 
-            for (int x = -offsetX; x < width; x += BRICK_WIDTH) {
-                int brickX = startX + x;
-                int newBrickWidth = BRICK_WIDTH;
+                for (int x = -offsetX; x < width; x += BRICK_WIDTH) {
+                    int brickX = startX + x;
+                    int newBrickWidth = BRICK_WIDTH;
 
-                // Falls der Ziegel über den rechten Rand hinausragt, auf passende Breite kürzen
-                if (brickX + BRICK_WIDTH > startX + width) {
-                    newBrickWidth = (startX + width) - brickX;
+                    // Falls der Ziegel über den rechten Rand hinausragt, auf passende Breite kürzen
+                    if (brickX + BRICK_WIDTH > startX + width) {
+                        newBrickWidth = (startX + width) - brickX;
+                    }
+                    // Falls der Ziegel über den linken Rand hinausragt, auf halbe Breite kürzen
+                    if (brickX < startX) {
+                        newBrickWidth = BRICK_WIDTH / 2;
+                        brickX = startX;
+                    }
+
+                    g.setColor(BRICK_COLOR);
+                    g.fillRect(brickX, startY + y, newBrickWidth, BRICK_HEIGHT); // Ziegel zeichnen
+
+                    g.setColor(Color.BLACK);
+                    g.drawRect(brickX, startY + y, newBrickWidth, BRICK_HEIGHT); // Ziegel-Konturen zeichnen
                 }
-                // Falls der Ziegel über den linken Rand hinausragt, auf halbe Breite kürzen
-                if (brickX < startX) {
-                    newBrickWidth = BRICK_WIDTH / 2;
-                    brickX = startX;
-                }
-
-                g.setColor(BRICK_COLOR);
-                g.fillRect(brickX, startY + y, newBrickWidth, BRICK_HEIGHT); // Ziegel zeichnen
-
-                g.setColor(Color.BLACK);
-                g.drawRect(brickX, startY + y, newBrickWidth, BRICK_HEIGHT); // Ziegel-Konturen zeichnen
             }
         }
     }

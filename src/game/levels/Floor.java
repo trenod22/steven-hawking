@@ -23,9 +23,11 @@ public class Floor implements Drawable {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.GREEN);
-        g.fillRect((int) (location.x- Game.topLeft.x), (int) location.y,width,height);
-        g.setColor(Color.BLACK);
+        if (location.x - Game.topLeft.x < 1000 && location.x - Game.topLeft.x > -250 - width) {
+            g.setColor(Color.GREEN);
+            g.fillRect((int) (location.x - Game.topLeft.x), (int) location.y, width, height);
+            g.setColor(Color.BLACK);
+        }
     }
 
 

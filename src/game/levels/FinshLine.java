@@ -25,16 +25,17 @@ public class FinshLine extends Extra {
 
     @Override
     public void draw(Graphics2D g) {
-        for (int y = 0; y < Frame.WINDOWS_HEIGHT; y += TILE_SIZE) {
-            boolean isBlack = (y / TILE_SIZE) % 2 == 0;
-            g.setColor(isBlack ? Color.BLACK : Color.WHITE);
-            g.fillRect((int) (location.x - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
+        if (location.x - Game.topLeft.x < 1000 && location.x - Game.topLeft.x > -250 - width){
+            for (int y = 0; y < Frame.WINDOWS_HEIGHT; y += TILE_SIZE) {
+                boolean isBlack = (y / TILE_SIZE) % 2 == 0;
+                g.setColor(isBlack ? Color.BLACK : Color.WHITE);
+                g.fillRect((int) (location.x - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
+                g.fillRect((int) (location.x + TILE_SIZE + TILE_SIZE - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
+                g.setColor(isBlack ? Color.WHITE : Color.BLACK);
+                g.fillRect((int) (location.x + TILE_SIZE - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
+            }
+            g.setColor(Color.BLACK);
         }
-        for (int y = 0; y < Frame.WINDOWS_HEIGHT; y += TILE_SIZE) {
-            boolean isBlack = (y / TILE_SIZE) % 2 == 1;
-            g.setColor(isBlack ? Color.BLACK : Color.WHITE);
-            g.fillRect((int) ((int) location.x + TILE_SIZE - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
-        }
-        g.setColor(Color.BLACK);
+
     }
 }
