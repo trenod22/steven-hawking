@@ -9,7 +9,7 @@ import java.awt.*;
 import java.util.List;
 
 public class Hawkin implements Drawable {
-    private Vector location = new Vector(100,900);
+    private Vector location = new Vector(100,700);
     private Vector speed = new Vector(0,0);
     private Vector acceleration = new Vector(0,0.5f);
     private int height = 50;
@@ -138,9 +138,9 @@ public class Hawkin implements Drawable {
 
 
     private void isOnFloor(){
-        if (location.y >= 900 - height){
+        if (location.y >= 700 - height){
             isOnFloor = true;
-            location.y = 900 - height;
+            location.y = 700 - height;
             speed.y = 0f;
             acceleration.y = 0f;
         } else {
@@ -182,7 +182,7 @@ public class Hawkin implements Drawable {
     }
     public void reset(){
         location.x = 100;
-        location.y = 900;
+        location.y = 700;
     }
 
 }

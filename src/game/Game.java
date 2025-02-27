@@ -45,9 +45,9 @@ public class Game {
 
         figures.forEach(f -> f.draw(g));
         g.setColor(new Color(11, 64, 2));
-        g.fillRect(0,900,1000,5);
+        g.fillRect(0,700,1000,5);
         g.setColor(new Color(145, 70,0));
-        g.fillRect(0,905,1000,100);
+        g.fillRect(0,705,1000,100);
 
         g.drawString(topLeft.x + topLeft.y + "", 50,50);
     }
