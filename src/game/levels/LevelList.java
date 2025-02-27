@@ -30,12 +30,18 @@ public class LevelList {
 
 
         l1.addObstacle(new Obstacle(new Vector(1500,300),500,50));
-        l1.addObstacle(new Obstacle(new Vector(2200,600),200,50));
         l1.addObstacle(new Obstacle(new Vector(2500,400),400,50));
         l1.addObstacle(new Obstacle(new Vector(2500,0),200,50));
 
         l1.addFloor(new Floor(new Vector(2800,500),50,200));
         l1.addObstacle(new Obstacle(new Vector(3000,0),550,50));
+
+
+        l1.addObstacle(new Obstacle(new Vector(3400,600),200,50));
+        l1.addObstacle(new Obstacle(new Vector(3450,0),400,50));
+
+        l1.addObstacle(new Obstacle(new Vector(3600,0),200,50));
+        l1.addObstacle(new Obstacle(new Vector(3650,400),400,50));
 
         l1.addExtras(new Jetpack(new Vector(2000, 600),200,50));
         levels.add(l1);

@@ -6,6 +6,7 @@ import game.levels.*;
 
 import java.awt.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hawkin implements Drawable {
@@ -16,9 +17,9 @@ public class Hawkin implements Drawable {
     private int width = 20;
     private boolean isOnFloor = false;
     public static boolean hasJetPack = false;
-    private List<Floor> currentFloors;
-    private List<Obstacle> currentObstacles;
-    private List<Extra> currentExtras;
+    private List<Floor> currentFloors = new ArrayList<>();
+    private List<Obstacle> currentObstacles = new ArrayList<>();
+    private List<Extra> currentExtras = new ArrayList<>();
 
 
     @Override
@@ -183,6 +184,9 @@ public class Hawkin implements Drawable {
     public void reset(){
         location.x = 100;
         location.y = 700;
+        for (Floor f : currentFloors){
+                f.hitFromBottom = false;
+        }
     }
 
 }
