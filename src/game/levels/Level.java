@@ -10,7 +10,12 @@ public class Level {
     private List<Obstacle> obstacles = new ArrayList<>();
     private List<Floor> floors = new ArrayList<>();
     private List<Extra> extras = new ArrayList<>();
-    public int finish;
+    private int finish = 5000;
+
+    public Level(int finish){
+        extras.add(new FinshLine(finish));
+        this.finish = finish;
+    }
 
 
 
@@ -45,5 +50,9 @@ public class Level {
 
     public List<Extra> getExtras() {
         return extras;
+    }
+
+    public int getFinish(){
+        return finish;
     }
 }

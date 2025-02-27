@@ -34,7 +34,7 @@ public class Game {
 
         figures.forEach(f -> f.update());
 
-        levelDone = hawkin.getLocation().x >= currentLevel.finish;
+        levelDone = hawkin.getLocation().x >= currentLevel.getFinish();
         if (Game.lost){
             levelLost();
             Game.lost = false;
