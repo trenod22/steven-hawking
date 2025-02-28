@@ -20,6 +20,7 @@ public class Game {
     private boolean levelDone = true;
     public static boolean lost = false;
     private Screens currentScreen = Screens.GAME;
+    private long time = System.currentTimeMillis();
 
 
     public Game(){
@@ -28,6 +29,7 @@ public class Game {
 
 
     public void update(){
+        //timingTester();
         switch (currentScreen){
             case GAME :
                 updateGame();
@@ -96,6 +98,8 @@ public class Game {
 
     private void drawGame(Graphics2D g){
         figures.forEach(f -> f.draw(g));
+
+
         g.setColor(new Color(11, 64, 2));
         g.fillRect(0,700,1000,5);
         g.setColor(new Color(145, 70,0));
@@ -113,4 +117,9 @@ public class Game {
 
     }
 
+
+    private void timingTester(){
+        System.out.println(System.currentTimeMillis() - time);
+        time = System.currentTimeMillis();
+    }
 }

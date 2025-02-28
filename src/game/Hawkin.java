@@ -59,7 +59,6 @@ public class Hawkin implements Drawable {
                         Game.lost = true;
                         return;
                     }
-                    System.out.println("Set Location");
                     location.y = floorY + f.getHeight() + 16;
                     speed.y = 0.5f;
                     acceleration.y = 0.5f;
