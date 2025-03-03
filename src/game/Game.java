@@ -22,6 +22,7 @@ public class Game {
     public static boolean lost = false;
     private Screens currentScreen = Screens.MENU;
     private long time = System.currentTimeMillis();
+    private boolean checkBit = false;
 
 
 
@@ -115,7 +116,11 @@ public class Game {
 
     private void updateMenu(){
         if (Game.spacePressed){
+            checkBit = true;
+        }
+        if (!Game.spacePressed && checkBit){
             currentScreen = Screens.GAME;
+            checkBit = false;
         }
     }
 
