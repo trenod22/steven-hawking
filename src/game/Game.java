@@ -23,6 +23,7 @@ public class Game {
     private long time = System.currentTimeMillis();
 
 
+
     public Game(){
         levelFinished();
     }
@@ -30,6 +31,8 @@ public class Game {
 
     public void update(){
         //timingTester();
+
+
         switch (currentScreen){
             case GAME :
                 updateGame();
