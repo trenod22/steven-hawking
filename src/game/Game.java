@@ -1,5 +1,6 @@
 package game;
 
+import game.GUI.Menu;
 import game.Utils.Screens;
 import game.framework.*;
 import game.levels.*;
@@ -19,7 +20,7 @@ public class Game {
     public static final float gameMoveSpeed = 3f;
     private boolean levelDone = true;
     public static boolean lost = false;
-    private Screens currentScreen = Screens.GAME;
+    private Screens currentScreen = Screens.MENU;
     private long time = System.currentTimeMillis();
 
 
@@ -58,7 +59,6 @@ public class Game {
                 drawMenu(g);
                 break;
         }
-
     }
 
     public void levelFinished(){
@@ -76,6 +76,7 @@ public class Game {
     public void levelLost(){
         topLeft.x = 0;
         hawkin.reset();
+        currentScreen = Screens.MENU;
     }
 
 
@@ -113,11 +114,13 @@ public class Game {
 
 
     private void updateMenu(){
-
+        if (Game.spacePressed){
+            currentScreen = Screens.GAME;
+        }
     }
 
     private void drawMenu(Graphics2D g){
-
+        Menu.draw(g);
     }
 
 
