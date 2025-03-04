@@ -5,6 +5,7 @@ import java.awt.*;
 public class Menu {
 
     public static void draw(Graphics2D g) {
+        Font font = g.getFont();
         // Set background color
         g.setColor(new Color(30, 30, 30));
         g.fillRect(0, 0, 800, 800); // Assuming a window size of 800x600
@@ -21,6 +22,17 @@ public class Menu {
         String startMessage = "Press Space to Start";
         int textWidth = g.getFontMetrics().stringWidth(startMessage);
         g.drawString(startMessage, (800 - textWidth) / 2, 400);
+
+        String steuerungMessage = "Press Space to Jump";
+        int textWidth1 = g.getFontMetrics().stringWidth(steuerungMessage);
+        g.drawString(steuerungMessage, (800 - textWidth1) / 2, 500);
+
+        String steuerung1Message = "Press Mouse to use Jetpack";
+        int textWidth2 = g.getFontMetrics().stringWidth(steuerung1Message);
+        g.drawString(steuerung1Message, (800 - textWidth2) / 2, 600);
+
+
+
     }
 
 

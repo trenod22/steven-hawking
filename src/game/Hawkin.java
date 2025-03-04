@@ -95,6 +95,7 @@ public class Hawkin implements Drawable {
 
     @Override
     public void draw(Graphics2D g) {
+
         // Zeichne den Rollstuhl (Basis)
         g.setColor(Color.DARK_GRAY);
         g.fillRect((int) (location.x - Game.topLeft.x), (int) location.y, width, height - 5); // Körper
@@ -148,6 +149,7 @@ public class Hawkin implements Drawable {
                 if (location.x + width > floor.getLocation().x &&
                         location.x < floor.getLocation().x + floor.getWidth() &&
                         location.y + height >= floor.getLocation().y &&
+                        location.y < floor.getLocation().y + floor.getHeight() &&
                         speed.y >= 0 && !floor.hitFromBottom) { // Sicherstellen, dass der Spieler nach unten geht
                     if (location.x + width - floor.getLocation().x<= 5f){
                         Game.lost = true;
