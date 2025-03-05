@@ -13,7 +13,7 @@ public class Menu {
         // Draw Title
         g.setFont(new Font("Arial", Font.BOLD, 50));
         g.setColor(Color.WHITE);
-        String title = "Steven Hawkin Game";
+        String title = "Steven Hawking Game";
         int titleWidth = g.getFontMetrics().stringWidth(title);
         g.drawString(title, (800 - titleWidth) / 2, 200);
 
