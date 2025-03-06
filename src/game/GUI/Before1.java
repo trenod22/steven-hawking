@@ -8,7 +8,6 @@ public class Before1 {
         // Set background color
         g.setColor(new Color(30, 30, 30));
         g.fillRect(0, 0, 800, 800);
-
         // Draw Title
         g.setFont(new Font("Arial", Font.BOLD, 50));
         g.setColor(Color.WHITE);
@@ -26,7 +25,7 @@ public class Before1 {
         int textWidth1 = g.getFontMetrics().stringWidth(steuerungMessage);
         g.drawString(steuerungMessage, (800 - textWidth1) / 2, 400);
 
-        String steuerung1Message = "Press Mouse to use Jetpack";
+        String steuerung1Message = "Press Mouse to use 1";
         int textWidth2 = g.getFontMetrics().stringWidth(steuerung1Message);
         g.drawString(steuerung1Message, (800 - textWidth2) / 2, 500);
 

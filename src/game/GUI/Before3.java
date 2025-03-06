@@ -26,7 +26,7 @@ public class Before3 {
         int textWidth1 = g.getFontMetrics().stringWidth(steuerungMessage);
         g.drawString(steuerungMessage, (800 - textWidth1) / 2, 400);
 
-        String steuerung1Message = "Press Mouse to use Jetpack";
+        String steuerung1Message = "Press Mouse to use 3";
         int textWidth2 = g.getFontMetrics().stringWidth(steuerung1Message);
         g.drawString(steuerung1Message, (800 - textWidth2) / 2, 500);
 

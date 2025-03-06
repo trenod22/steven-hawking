@@ -29,6 +29,7 @@ public class Game {
 
     public Game(){
         levelFinished();
+        currentScreen = Screens.MENU;
     }
 
 
@@ -41,11 +42,19 @@ public class Game {
                 updateGame();
                 break;
             case MENU:
+                updateMenu(getScreen());
+                break;
             case BEONE:
+                updateMenu(Screens.GAME);
+                break;
             case BETWO:
+                updateMenu(Screens.GAME);
+                break;
             case BETHREE:
+                updateMenu(Screens.GAME);
+                break;
             case BEFOUR:
-                updateMenu();
+                updateMenu(Screens.GAME);
                 break;
         }
 
@@ -110,10 +119,6 @@ public class Game {
         currentScreen = Screens.MENU;
     }
 
-
-
-
-
     private void updateGame(){
         figures.clear();
         figures.add(hawkin);
@@ -142,16 +147,15 @@ public class Game {
         g.fillRect(0,705,1000,100);
 
         g.drawString("Level: "+ levelList.getCurrentLevel(), 50,50);
-        g.drawString(topLeft.x + "", 100,100);
     }
 
 
-    private void updateMenu(){
+    private void updateMenu(Screens s){
         if (Game.spacePressed){
             checkBit = true;
         }
         if (!Game.spacePressed && checkBit){
-            currentScreen = Screens.GAME;
+            currentScreen = s;
             checkBit = false;
         }
     }
@@ -164,5 +168,20 @@ public class Game {
     private void timingTester(){
         System.out.println(System.currentTimeMillis() - time);
         time = System.currentTimeMillis();
+    }
+
+    private Screens getScreen(){
+        switch (levelList.getCurrentLevel()){
+            case 1:
+                return Screens.BEONE;
+            case 2:
+                return Screens.BETWO;
+            case 3:
+                return Screens.BETHREE;
+            case 4:
+                return Screens.BEFOUR;
+            default:
+                return null;
+        }
     }
 }
