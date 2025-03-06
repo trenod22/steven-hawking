@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LevelList {
     List<Level> levels = new ArrayList<>();
-    private int currentLevel = 3;
+    private int currentLevel = 0;
 
     public LevelList(){
         initLevels();
