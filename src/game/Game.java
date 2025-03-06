@@ -1,5 +1,6 @@
 package game;
 
+import game.GUI.*;
 import game.GUI.Menu;
 import game.Utils.Screens;
 import game.framework.*;
@@ -40,6 +41,10 @@ public class Game {
                 updateGame();
                 break;
             case MENU:
+            case BEONE:
+            case BETWO:
+            case BETHREE:
+            case BEFOUR:
                 updateMenu();
                 break;
         }
@@ -59,13 +64,38 @@ public class Game {
             case MENU:
                 drawMenu(g);
                 break;
+            case BEONE:
+                Before1.draw(g);
+                break;
+            case BETWO:
+                Before2.draw(g);
+                break;
+            case BETHREE:
+                Before3.draw(g);
+                break;
+            case BEFOUR:
+                Before4.draw(g);
+                break;
         }
     }
 
     public void levelFinished(){
         if (levelDone){
             currentLevel = levelList.getNextLevel();
-
+            switch (levelList.getCurrentLevel()){
+                case 1:
+                    currentScreen = Screens.BEONE;
+                    break;
+                case 2:
+                    currentScreen = Screens.BETWO;
+                    break;
+                case 3:
+                    currentScreen = Screens.BETHREE;
+                    break;
+                case 4:
+                    currentScreen = Screens.BEFOUR;
+                    break;
+            }
             hawkin.reset();
             topLeft.x = 0;
             hawkin.setCurrentFloors(currentLevel.getFloors());
@@ -112,6 +142,7 @@ public class Game {
         g.fillRect(0,705,1000,100);
 
         g.drawString("Level: "+ levelList.getCurrentLevel(), 50,50);
+        g.drawString(topLeft.x + "", 100,100);
     }
 
 

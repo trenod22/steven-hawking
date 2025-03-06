@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LevelList {
     List<Level> levels = new ArrayList<>();
-    private int currentLevel = 0;
+    private int currentLevel = 3;
 
     public LevelList(){
         initLevels();
@@ -134,6 +134,7 @@ public class LevelList {
 
         Level l4 = new Level(5000);
 
+        l4.addObstacle(new Obstacle(new Vector(-10,0),20,6000));
         l4.addFloor(new Floor(new Vector(400,450),50,200));
         l4.addFloor(new Floor(new Vector(750,400),50,200));
         l4.addFloor(new Floor(new Vector(1100,350),50,200));
@@ -159,19 +160,17 @@ public class LevelList {
         l4.addObstacle(new Obstacle(new Vector(3250,400),300,50));
 
         l4.addObstacle(new Obstacle(new Vector(3500,220),450,50));
-        l4.addObstacle(new Obstacle(new Vector(3700,500),350,50));
-        l4.addObstacle(new Obstacle(new Vector(3700,0),150,50));
+        l4.addObstacle(new Obstacle(new Vector(3850,0),150,50));
 
-        l4.addObstacle(new Obstacle(new Vector(3900,0),500,50));
-        l4.addObstacle(new Obstacle(new Vector(3950,400),400,50));
+        l4.addObstacle(new Obstacle(new Vector(4100,300),300,50));
+        l4.addObstacle(new Obstacle(new Vector(4200,0),150,50));
+        l4.addObstacle(new Obstacle(new Vector(4250,500),250,50));
+        l4.addObstacle(new Obstacle(new Vector(4400,200),200,50));
 
-        l4.addObstacle(new Obstacle(new Vector(4200,200),600,50));
-        l4.addObstacle(new Obstacle(new Vector(4400,500),300,50));
-        l4.addObstacle(new Obstacle(new Vector(4400,0),300,50));
+        l4.addObstacle(new Obstacle(new Vector(4600,220),580,50));
 
-        l4.addObstacle(new Obstacle(new Vector(4600,0),250,50));
-        l4.addObstacle(new Obstacle(new Vector(4650,450),350,50));
-        l4.addObstacle(new Obstacle(new Vector(4800,220),580,50));
+        l4.addObstacle(new Obstacle(new Vector(4900,0),400,50));
+        l4.addObstacle(new Obstacle(new Vector(4900,600),100,50));
 
         levels.add(l4);
 
