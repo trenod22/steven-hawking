@@ -37,7 +37,7 @@ public class LevelList {
         l1.addObstacle(new Obstacle(new Vector(2500,0),200,50));
 
         l1.addFloor(new Floor(new Vector(2800,500),50,250));
-        l1.addObstacle(new Obstacle(new Vector(3000,0),540,50));
+        l1.addObstacle(new Obstacle(new Vector(3000,0),540,48));
 
 
         l1.addObstacle(new Obstacle(new Vector(3400,600),200,50));
