@@ -31,7 +31,7 @@ public class Menu {
         int textWidth2 = g.getFontMetrics().stringWidth(steuerung1Message);
         g.drawString(steuerung1Message, (800 - textWidth2) / 2, 500);
 
-
+        g.setFont(font);
 
     }
 
