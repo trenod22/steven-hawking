@@ -96,6 +96,7 @@ public class Game {
         levelDone = hawkin.getLocation().x >= currentLevel.getFinish();
         if (Game.lost){
             levelLost();
+            currentScreen = Screens.MENU;
             Game.lost = false;
         }
         levelFinished();
@@ -110,7 +111,7 @@ public class Game {
         g.setColor(new Color(145, 70,0));
         g.fillRect(0,705,1000,100);
 
-        g.drawString(topLeft.x + topLeft.y + "", 50,50);
+        g.drawString("Level: "+ levelList.getCurrentLevel(), 50,50);
     }
 
 

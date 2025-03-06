@@ -16,7 +16,7 @@ public class Hawkin implements Drawable {
     private int height = 50;
     private int width = 20;
     private boolean isOnFloor = false;
-    public static boolean hasJetPack = false;
+    public static boolean hasJetPack = true;
     private List<Floor> currentFloors = new ArrayList<>();
     private List<Obstacle> currentObstacles = new ArrayList<>();
     private List<Extra> currentExtras = new ArrayList<>();
