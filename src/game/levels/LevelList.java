@@ -37,7 +37,7 @@ public class LevelList {
         l1.addObstacle(new Obstacle(new Vector(2500,0),200,50));
 
         l1.addFloor(new Floor(new Vector(2800,500),50,250));
-        l1.addObstacle(new Obstacle(new Vector(3000,0),550,50));
+        l1.addObstacle(new Obstacle(new Vector(3000,0),540,50));
 
 
         l1.addObstacle(new Obstacle(new Vector(3400,600),200,50));
@@ -72,15 +72,15 @@ public class LevelList {
         l2.addObstacle(new Obstacle(new Vector(1300,0),300,50));
         l2.addObstacle(new Obstacle(new Vector(1300,500),300,50));
 
-        l2.addObstacle(new Obstacle(new Vector(1827,100),300,50));
-        l2.addObstacle(new Obstacle(new Vector(1827,600),200,50));
-        l2.addObstacle(new Obstacle(new Vector(1827,345),50,463));
+        l2.addObstacle(new Obstacle(new Vector(1527,100),300,50));
+        l2.addObstacle(new Obstacle(new Vector(1527,600),200,50));
+        l2.addObstacle(new Obstacle(new Vector(1527,345),50,463));
 
-        l2.addObstacle(new Obstacle(new Vector(2240,0),400,50));
-        l2.addObstacle(new Obstacle(new Vector(2240,600),200,50));
+        l2.addObstacle(new Obstacle(new Vector(2300,0),400,50));
+        l2.addObstacle(new Obstacle(new Vector(2300,600),200,50));
 
-        l2.addObstacle(new Obstacle(new Vector(2400,0),25,50));
-        l2.addObstacle(new Obstacle(new Vector(2400,165),680,50));
+        l2.addObstacle(new Obstacle(new Vector(2500,0),25,50));
+        l2.addObstacle(new Obstacle(new Vector(2500,165),680,50));
 
         l2.addObstacle(new Obstacle(new Vector(2750,0),320,50));
         l2.addObstacle(new Obstacle(new Vector(2750,520),300,50));
