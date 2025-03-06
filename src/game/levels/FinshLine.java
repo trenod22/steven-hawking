@@ -6,9 +6,12 @@ import game.framework.Frame;
 import game.framework.Vector;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class FinshLine extends Extra {
-    private static final int TILE_SIZE = 20; // Size of each checker square
+    private static final int PORTAL_RADIUS = 50; // Radius des Portals
+    private static final Color OUTER_COLOR = new Color(0, 120, 255); // Blau für den Rand
+    private static final Color INNER_COLOR = new Color(100, 0, 150); // Lila für den inneren Effekt
 
     public FinshLine(float x) {
         location = new Vector(0,0);
@@ -25,17 +28,20 @@ public class FinshLine extends Extra {
 
     @Override
     public void draw(Graphics2D g) {
-        if (location.x - Game.topLeft.x < 1000 && location.x - Game.topLeft.x > -250 - width){
-            for (int y = 0; y < Frame.WINDOWS_HEIGHT; y += TILE_SIZE) {
-                boolean isBlack = (y / TILE_SIZE) % 2 == 0;
-                g.setColor(isBlack ? Color.BLACK : Color.WHITE);
-                g.fillRect((int) (location.x - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
-                g.fillRect((int) (location.x + TILE_SIZE + TILE_SIZE - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
-                g.setColor(isBlack ? Color.WHITE : Color.BLACK);
-                g.fillRect((int) (location.x + TILE_SIZE - Game.topLeft.x), y, TILE_SIZE, TILE_SIZE);
-            }
-            g.setColor(Color.BLACK);
-        }
+        int screenX = (int) (location.x - Game.topLeft.x);
+        int centerY = Frame.WINDOWS_HEIGHT / 2;
 
+        if (screenX > -PORTAL_RADIUS && screenX < 1000) {
+            // Äußerer Portalrand
+            g.setColor(OUTER_COLOR);
+            g.fill(new Ellipse2D.Float(screenX, 0, PORTAL_RADIUS * 2, Frame.WINDOWS_HEIGHT-100));
+
+            // Innerer Wirbel-Effekt
+            GradientPaint gradient = new GradientPaint(
+                    screenX - PORTAL_RADIUS, centerY, INNER_COLOR,
+                    screenX + PORTAL_RADIUS, centerY, Color.BLACK, true);
+            g.setPaint(gradient);
+            g.fill(new Ellipse2D.Float(screenX + 10, 10, (PORTAL_RADIUS - 10) * 2, (Frame.WINDOWS_HEIGHT - 120)));
+        }
     }
 }
