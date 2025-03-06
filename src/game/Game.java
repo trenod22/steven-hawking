@@ -45,15 +45,10 @@ public class Game {
                 updateMenu(getScreen());
                 break;
             case BEONE:
-                updateMenu(Screens.GAME);
-                break;
             case BETWO:
-                updateMenu(Screens.GAME);
-                break;
             case BETHREE:
-                updateMenu(Screens.GAME);
-                break;
             case BEFOUR:
+            case FINISH:
                 updateMenu(Screens.GAME);
                 break;
         }
@@ -85,6 +80,9 @@ public class Game {
             case BEFOUR:
                 Before4.draw(g);
                 break;
+            case FINISH:
+                AfterDone.draw(g);
+                break;
         }
     }
 
@@ -93,6 +91,10 @@ public class Game {
             currentLevel = levelList.getNextLevel();
             switch (levelList.getCurrentLevel()){
                 case 1:
+                    if (LevelList.tickedOver){
+                        currentScreen = Screens.FINISH;
+                        break;
+                    }
                     currentScreen = Screens.BEONE;
                     break;
                 case 2:
@@ -173,6 +175,9 @@ public class Game {
     private Screens getScreen(){
         switch (levelList.getCurrentLevel()){
             case 1:
+                if (LevelList.tickedOver){
+                    return Screens.FINISH;
+                }
                 return Screens.BEONE;
             case 2:
                 return Screens.BETWO;

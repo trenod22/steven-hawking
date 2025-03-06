@@ -8,6 +8,7 @@ import java.util.List;
 public class LevelList {
     List<Level> levels = new ArrayList<>();
     private int currentLevel = 0;
+    public static boolean tickedOver = false;
 
     public LevelList(){
         initLevels();
@@ -16,6 +17,7 @@ public class LevelList {
     public Level getNextLevel(){
         currentLevel++;
         if (levels.size() < currentLevel){
+            tickedOver = true;
             currentLevel = 1;
         }
         return levels.get(currentLevel-1);

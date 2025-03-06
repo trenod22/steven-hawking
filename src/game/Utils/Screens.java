@@ -7,4 +7,5 @@ public enum Screens {
     BETWO,
     BETHREE,
     BEFOUR,
+    FINISH,
 }
